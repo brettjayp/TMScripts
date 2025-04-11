@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Corrigo WO Test01
 // @namespace    http://tampermonkey.net/
-// @version      2025-04-09
+// @version      0.1.1
 // @description  First test implementing a Tampermonkey script to improve Corrigo work order creation workflow.
 // @author       brett.packard@delta.com
 // @author       brett.packard@jll.com
