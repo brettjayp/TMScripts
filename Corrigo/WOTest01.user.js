@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Corrigo WO Test01
 // @namespace    http://tampermonkey.net/
-// @version      0.1.6
+// @version      0.1.6.1
 // @description  First test implementing a Tampermonkey script to improve Corrigo work order creation workflow.
 // @author       brett.packard@delta.com
 // @author       brett.packard@jll.com
@@ -10,8 +10,6 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=corrigo.com
 // @downloadURL  https://github.com/brettjayp/TMScripts/raw/refs/heads/main/Corrigo/WOTest01.user.js
 // @updateURL    https://github.com/brettjayp/TMScripts/raw/refs/heads/main/Corrigo/WOTest01.user.js\
-// NOTE MUST REMOVE NEXT LINE PRIOR TO RELEASE
-// @require      /Users/brettpackard/Projects/TMScripts/Corrigo/WOTest01.user.js
 // @grant        none
 // ==/UserScript==
 
@@ -153,9 +151,6 @@ function confContact(){
 // Main function
 function main(){
     window.addEventListener('load', function(){console.log('!!LOGGING!! Page is loaded')});
-    //sleep(3000).then(() => alert('TESTING, UPDATE, not local'));
-    sleep(3000).then(() => alert('TESTING, UPDATE, last test'));
-    
     // sleep(3000).then(() => newWorkOrder());
     // sleep(1000).then(() => siteSims());
     // sleep(1000).then(() => confContact());
