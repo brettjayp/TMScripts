@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Corrigo WO Test01
 // @namespace    http://tampermonkey.net/
-// @version      0.1.6.1
+// @version      0.1.7.1
 // @description  First test implementing a Tampermonkey script to improve Corrigo work order creation workflow.
 // @author       brett.packard@delta.com
 // @author       brett.packard@jll.com
@@ -39,7 +39,6 @@ Notes:
 
 */
 function sleep(ms){
-    //console.log(`sleep(ms) ms= ${ms}\ncumulative = ${cumulative}`);
     cumulative += ms;
     return new Promise(resolve => setTimeout(resolve, cumulative));
 }
@@ -154,6 +153,18 @@ function main(){
     // sleep(3000).then(() => newWorkOrder());
     // sleep(1000).then(() => siteSims());
     // sleep(1000).then(() => confContact());
+}
+
+// testing code from SO
+function addButton(text, onclick, cssObj) {
+    cssObj = cssObj || {position: 'absolute', bottom: '7%', left:'4%', 'z-index': 3}
+    let button = document.createElement('button'), btnStyle = button.style
+    document.body.appendChild(button)
+    button.innerHTML = text
+    button.onclick = onclick
+    btnStyle.position = 'absolute'
+    Object.keys(cssObj).forEach(key => btnStyle[key] = cssObj[key])
+    return button
 }
 
 main();
