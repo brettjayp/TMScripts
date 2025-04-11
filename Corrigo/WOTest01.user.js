@@ -109,20 +109,6 @@ function siteSims(){
     const el_AddInput = document.querySelector('[placeholder="Name, Street, City, State, or Zip"]');
     const el_Search = document.querySelectorAll('[class="filter-apply btn btn-primary"]')[1];
 
-    /*
-    if(el_PortPropSel){
-        el_PortPropSel.click();
-    }else{
-        alert('ERROR: siteSims()\nif(el_PortPropSel)');
-    }
-
-    if(el_PropSel){
-        sleep(1500).then(() => el_PropSel.click());
-    }else{
-        alert('ERROR: siteSims()\nif(el_PropSel)');
-    }
-    */
-
     if(el_AddInput){
         sleep(500).then(() => el_AddInput.click());
         sleep(500).then(() => {el_AddInput.value = "4829 w Amelia"});
