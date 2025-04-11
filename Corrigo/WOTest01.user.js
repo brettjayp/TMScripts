@@ -151,7 +151,7 @@ function confContact(){
 // Main function
 function main(){
     window.addEventListener('load', function(){console.log('!!LOGGING!! Page is loaded')});
-    sleep(3000).then(() => alert('TESTING'));
+    sleep(3000).then(() => alert('TESTING, UPDATE'));
     // sleep(3000).then(() => newWorkOrder());
     // sleep(1000).then(() => siteSims());
     // sleep(1000).then(() => confContact());
