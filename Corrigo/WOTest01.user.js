@@ -145,30 +145,31 @@ function confContact(){
         alert('ERROR: confContact()\nif(next)');
     }
 }
-
-// testing code from SO
-function addButton(text, onclick, cssObj) {
-    cssObj = cssObj || {position: 'absolute', bottom: '7%', left:'4%', 'z-index': 3}
-    let button = document.createElement('button'), btnStyle = button.style
-    document.body.appendChild(button)
-    button.innerHTML = text
-    button.onclick = onclick
-    btnStyle.position = 'absolute'
-    Object.keys(cssObj).forEach(key => btnStyle[key] = cssObj[key])
-    return button
+function doThings(){
+    // window.addEventListener('load', function(){console.log('!!LOGGING!! Page is loaded')});
+    alert('ok');
+    sleep(3000).then(() => newWorkOrder());
+    sleep(1000).then(() => siteSims());
+    sleep(1000).then(() => confContact());
 }
+
 //
 // Main function
 function main(){
-    alert('test');
-    // window.addEventListener('load', function(){console.log('!!LOGGING!! Page is loaded')});
-    // sleep(3000).then(() => newWorkOrder());
-    // sleep(1000).then(() => siteSims());
-    // sleep(1000).then(() => confContact());
+    window.addEventListener('load', () => {
+        // sleep(3000).then(() {=> addButton('button', doThings()));
+        sleep(3000).then(() => {
+            var button = document.createElement("Button");
+            button.innerHTML = "Button";
+            button.style = "top:0;right:100;position:relative;z-index:99999;padding:20px;background-color:red;height:30px;width:750px";
+            document.body.appendChild(button)
+        })
+    })
+    sleep(3000).then(() => {
+        // window.addEventListener(document.getElementById("Button")).onclick = doThings();
+        document.getElementById("Button").onclick = doThings();
+    })
 }
 
 
-window.addEventListener('load', () => {
-    addButton('button', main());
-})
 // main();
