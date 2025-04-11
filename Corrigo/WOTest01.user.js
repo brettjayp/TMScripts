@@ -8,6 +8,8 @@
 // @author       brettjayp@gmail.com
 // @match        https://az-am-ent-f3.corrigo.com/corpnet/workorder/workorderlist.aspx
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=corrigo.com
+// @downloadurl  https://github.com/brettjayp/TMScripts/raw/refs/heads/main/Corrigo/WOTest01.user.js
+// @updateurl    https://github.com/brettjayp/TMScripts/raw/refs/heads/main/Corrigo/WOTest01.user.js
 // @grant        none
 // ==/UserScript==
 
