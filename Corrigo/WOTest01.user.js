@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Corrigo WO Test01
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2
+// @version      0.1.3
 // @description  First test implementing a Tampermonkey script to improve Corrigo work order creation workflow.
 // @author       brett.packard@delta.com
 // @author       brett.packard@jll.com
@@ -9,7 +9,9 @@
 // @match        https://az-am-ent-f3.corrigo.com/corpnet/workorder/workorderlist.aspx
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=corrigo.com
 // @downloadurl  https://github.com/brettjayp/TMScripts/raw/refs/heads/main/Corrigo/WOTest01.user.js
-// @updateurl    https://github.com/brettjayp/TMScripts/raw/refs/heads/main/Corrigo/WOTest01.user.js
+// @updateurl    https://github.com/brettjayp/TMScripts/raw/refs/heads/main/Corrigo/WOTest01.user.js\
+// NOTE MUST REMOVE NEXT LINE PRIOR TO RELEASE
+// @require      /Users/brettpackard/Projects/TMScripts/Corrigo/WOTest01.user.js
 // @grant        none
 // ==/UserScript==
 
