@@ -13,158 +13,166 @@
 // @grant        none
 // ==/UserScript==
 
-'use strict'
+(function(){
 
-//
-// Variables and Constants
-var cumulative = 0;
-const name = "Corrigo WO Test - Make new sims WO";
+    'use strict'
 
-//
-// Initial actions
-console.log(`!!LOGGING!! Running userscript ${name}`);
+    //
+    // Variables and Constants
+    var cumulative = 0;
+    const name = "Corrigo WO Test - Make new sims WO";
 
-//
-// Helper Functions
-/*
-Function name:
+    //
+    // Initial actions
+    console.log(`!!LOGGING!! Running userscript ${name}`);
 
-Arguments:
+    //
+    // Helper Functions
+    /*
+    Function name:
 
-Purpose:
+    Arguments:
 
-Steps:
+    Purpose:
 
-Notes:
+    Steps:
 
-*/
-function sleep(ms){
-    cumulative += ms;
-    return new Promise(resolve => setTimeout(resolve, cumulative));
-}
+    Notes:
 
-/*
-Function name:
-
-Arguments:
-
-Purpose:
-
-Steps:
-
-Notes:
-
-*/
-function wait(ms){
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-/*
-Function name:
-
-Arguments:
-
-Purpose:
-
-Steps:
-
-Notes:
-
-*/
-function newWorkOrder(){
-    const el_WOAdd = document.querySelector('[title="Add new Work Order"]');
-
-    if(el_WOAdd){
-        el_WOAdd.click();
-    }else{
-        alert('ERROR: newWorkOrder()');
-    }
-}
-
-/*
-Function name:
-    siteSims()
-Arguments:
-    None
-Purpose:
-    After opening the new work order modal, this will find,
-    select, and set the property location to the sims building
-    by using the address. We don't use the property name input
-    field because its autocomplete and dropdown features cause
-    too much headache to successfully select the property. The
-    address input field is much more simple and friendly.
-Steps:
-    Select the dropdown
-    Select Property
-    Enter address in field
-    Click submit button in the only option
-Notes:
-    Noticed that I don't need to bother with the annoying
-    dropdown selector if I use the address search. I will
-    comment out the dropdown code for now.
-
-*/
-function siteSims(){
-    // const el_PortPropSel = document.querySelectorAll('[class="k-picker k-dropdownlist corrigo-scope-selector-dropdown k-picker-solid k-picker-md k-rounded-md"]')[1];
-    // const el_PropSel = document.querySelectorAll('[class="k-list-item k-item"]', '[title="Property"]')[1];
-    const el_AddInput = document.querySelector('[placeholder="Name, Street, City, State, or Zip"]');
-    const el_Search = document.querySelectorAll('[class="filter-apply btn btn-primary"]')[1];
-
-    if(el_AddInput){
-        sleep(500).then(() => el_AddInput.click());
-        sleep(500).then(() => {el_AddInput.value = "4829 w Amelia"});
-    }else{
-        alert('ERROR: siteSims()\nif(el_AddInput)');
+    */
+    function sleep(ms){
+        cumulative += ms;
+        return new Promise(resolve => setTimeout(resolve, cumulative));
     }
 
-    if(el_Search){
-        sleep(500).then(() => el_Search.click());
-        sleep(500).then(() => document.querySelectorAll('[title="Select and Continue"]')[0].click());
-    }else{
-        alert('ERROR: siteSims()\nif(el_Search)');
+    /*
+    Function name:
+
+    Arguments:
+
+    Purpose:
+
+    Steps:
+
+    Notes:
+
+    */
+    function wait(ms){
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
-}
 
-/*
-Function name:
+    /*
+    Function name:
 
-Arguments:
+    Arguments:
 
-Purpose:
+    Purpose:
 
-Steps:
+    Steps:
 
-Notes:
+    Notes:
 
-*/
-function confContact(){
-    const next = document.querySelectorAll('[data-testid="id-btn-save"]');
-    if(next){
-        sleep(500).then(() => next.click());
-    }else{
-        alert('ERROR: confContact()\nif(next)');
+    */
+    function newWorkOrder(){
+        const el_WOAdd = document.querySelector('[title="Add new Work Order"]');
+
+        if(el_WOAdd){
+            el_WOAdd.click();
+        }else{
+            alert('ERROR: newWorkOrder()');
+        }
     }
-}
 
-//
-// Main function
-function main(){
-    window.addEventListener('load', function(){console.log('!!LOGGING!! Page is loaded')});
-    // sleep(3000).then(() => newWorkOrder());
-    // sleep(1000).then(() => siteSims());
-    // sleep(1000).then(() => confContact());
-}
+    /*
+    Function name:
+        siteSims()
+    Arguments:
+        None
+    Purpose:
+        After opening the new work order modal, this will find,
+        select, and set the property location to the sims building
+        by using the address. We don't use the property name input
+        field because its autocomplete and dropdown features cause
+        too much headache to successfully select the property. The
+        address input field is much more simple and friendly.
+    Steps:
+        Select the dropdown
+        Select Property
+        Enter address in field
+        Click submit button in the only option
+    Notes:
+        Noticed that I don't need to bother with the annoying
+        dropdown selector if I use the address search. I will
+        comment out the dropdown code for now.
 
-// testing code from SO
-function addButton(text, onclick, cssObj) {
-    cssObj = cssObj || {position: 'absolute', bottom: '7%', left:'4%', 'z-index': 3}
-    let button = document.createElement('button'), btnStyle = button.style
-    document.body.appendChild(button)
-    button.innerHTML = text
-    button.onclick = onclick
-    btnStyle.position = 'absolute'
-    Object.keys(cssObj).forEach(key => btnStyle[key] = cssObj[key])
-    return button
-}
+    */
+    function siteSims(){
+        // const el_PortPropSel = document.querySelectorAll('[class="k-picker k-dropdownlist corrigo-scope-selector-dropdown k-picker-solid k-picker-md k-rounded-md"]')[1];
+        // const el_PropSel = document.querySelectorAll('[class="k-list-item k-item"]', '[title="Property"]')[1];
+        const el_AddInput = document.querySelector('[placeholder="Name, Street, City, State, or Zip"]');
+        const el_Search = document.querySelectorAll('[class="filter-apply btn btn-primary"]')[1];
 
-main();
+        if(el_AddInput){
+            sleep(500).then(() => el_AddInput.click());
+            sleep(500).then(() => {el_AddInput.value = "4829 w Amelia"});
+        }else{
+            alert('ERROR: siteSims()\nif(el_AddInput)');
+        }
+
+        if(el_Search){
+            sleep(500).then(() => el_Search.click());
+            sleep(500).then(() => document.querySelectorAll('[title="Select and Continue"]')[0].click());
+        }else{
+            alert('ERROR: siteSims()\nif(el_Search)');
+        }
+    }
+
+    /*
+    Function name:
+
+    Arguments:
+
+    Purpose:
+
+    Steps:
+
+    Notes:
+
+    */
+    function confContact(){
+        const next = document.querySelectorAll('[data-testid="id-btn-save"]');
+        if(next){
+            sleep(500).then(() => next.click());
+        }else{
+            alert('ERROR: confContact()\nif(next)');
+        }
+    }
+    
+    // testing code from SO
+    function addButton(text, onclick, cssObj) {
+        cssObj = cssObj || {position: 'absolute', bottom: '7%', left:'4%', 'z-index': 3}
+        let button = document.createElement('button'), btnStyle = button.style
+        document.body.appendChild(button)
+        button.innerHTML = text
+        button.onclick = onclick
+        btnStyle.position = 'absolute'
+        Object.keys(cssObj).forEach(key => btnStyle[key] = cssObj[key])
+        return button
+    }
+    //
+    // Main function
+    function main(){
+        alert('test');
+        // window.addEventListener('load', function(){console.log('!!LOGGING!! Page is loaded')});
+        // sleep(3000).then(() => newWorkOrder());
+        // sleep(1000).then(() => siteSims());
+        // sleep(1000).then(() => confContact());
+    }
+    
+    
+    window.addEventListener('load', () => {
+        addButton('button', main());
+    })
+    // main();
+
+}())
